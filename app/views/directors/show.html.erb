@@ -1,0 +1,19 @@
+<h1><%= @the_director.name %></h1>
+
+<p><strong>DOB:</strong> <%= @the_director.dob %></p>
+<p><strong>Bio:</strong> <%= @the_director.bio %></p>
+
+<% if @the_director.image.present? %>
+  <%= image_tag @the_director.image, height: "250" %>
+<% end %>
+
+<h2>Movies Directed</h2>
+<ul>
+  <% @the_director.movies.each do |movie| %>
+    <li>
+      <strong><%= movie.title %></strong> (<%= movie.year %>)
+      —
+      <%= link_to "Show details", "/movies/#{movie.id}" %>
+    </li>
+  <% end %>
+</ul>

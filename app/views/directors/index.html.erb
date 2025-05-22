@@ -1,0 +1,27 @@
+<h1>List of All Directors</h1>
+
+<table border="1" cellspacing="10" cellpadding="10">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>DOB</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @list_of_directors.each do |director| %>
+    <tr>
+      <td><%= director.id %></td>
+      <td>
+        <% if director.image.present? %>
+          <%= image_tag director.image, height: "150" %>
+        <% end %>
+      </td>
+      <td><%= director.name %></td>
+      <td><%= director.dob %></td>
+      <td>
+        <%= link_to "Show details", "/directors/#{director.id}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

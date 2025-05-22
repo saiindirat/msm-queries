@@ -1,0 +1,10 @@
+<h1><%= @the_movie.title %></h1>
+
+<p><strong>Directed by:</strong> <%= @the_movie.director.name %></p>
+<p><strong>Year:</strong> <%= @the_movie.year %></p>
+<p><strong>Duration:</strong> <%= @the_movie.duration %> minutes</p>
+<p><strong>Description:</strong> <%= @the_movie.description %></p>
+
+<% if @the_movie.image.present? %>
+  <%= image_tag @the_movie.image, height: "250" %>
+<% end %>

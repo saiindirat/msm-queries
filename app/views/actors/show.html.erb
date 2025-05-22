@@ -1,0 +1,18 @@
+<h1><%= @the_actor.name %></h1>
+
+<p><strong>DOB:</strong> <%= @the_actor.dob %></p>
+<p><strong>Bio:</strong> <%= @the_actor.bio %></p>
+
+<% if @the_actor.image.present? %>
+  <%= image_tag @the_actor.image, height: "250" %>
+<% end %>
+
+<h2>Characters Played</h2>
+<ul>
+  <% @the_actor.characters.each do |char| %>
+    <li>
+      "<%= char.name %>" in <%= char.movie.title %> 
+      (Directed by <%= char.movie.director.name %>)
+    </li>
+  <% end %>
+</ul>
